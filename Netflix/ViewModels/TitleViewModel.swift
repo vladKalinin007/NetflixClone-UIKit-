@@ -9,8 +9,6 @@ import Foundation
 
 struct TitleViewModel {
     
-    // MARK: - PROPERTY
-    
     let titleName: String
     let posterURL: String
 }
