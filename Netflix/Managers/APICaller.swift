@@ -10,8 +10,6 @@ import Foundation
 
 struct Constants {
     
-// MARK: - PROPERTIES
-    
     static let API_KEY = "a69694f1d2c2601127484c479f36da28"
     static let baseURL = "https://api.themoviedb.org"
     static let YouTubeAPI_KEY = "AIzaSyBdhD-efS5OZTtvpRO0hOZTHR_cgYdD31w"
@@ -20,20 +18,13 @@ struct Constants {
 
 enum APIError: Error {
     
-// MARK: - PROPERTIES
-    
     case failedToGetData
 }
 
 
 class APICaller {
     
-// MARK: - PROPERTIES
-    
-    // MARK: Singleton
     static let shared = APICaller()
-    
-// MARK: - FUNCTIONS
     
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
         // MARK: Unwrap the link safely
