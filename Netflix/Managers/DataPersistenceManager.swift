@@ -10,8 +10,6 @@ import CoreData
 
 class DataPersistenceManager {
     
-// MARK: - PROPERTY
-    
     enum DatabaseError: Error {
         case failedToSaveData
         case failedToFetchData
@@ -19,11 +17,6 @@ class DataPersistenceManager {
     }
     
     static let shared = DataPersistenceManager()
-    
-// MARK: - LIFECYCLE
-    
-    
-// MARK: - FUNCTION
     
     func downloadTitleWith(model: Title, completion: @escaping(Result<Void, Error>) -> Void) {
         
@@ -33,7 +26,6 @@ class DataPersistenceManager {
         //NSManagedContext
         let context = appDelegate.persistentContainer.viewContext
         
-        //NSManagedObject
         let item = TitleItem(context: context)
         item.original_title = model.original_title
         item.id = Int64(model.id)
@@ -45,7 +37,6 @@ class DataPersistenceManager {
         item.vote_average = model.vote_average
         item.vote_count = Int64(model.vote_count)
         
-        //NSManagedContext.commit
         do {
             try context.save()
             completion(.success(()))
@@ -58,19 +49,14 @@ class DataPersistenceManager {
     
     func fetchingTitlesFromDataBase(completion: @escaping (Result<[TitleItem], Error>) -> Void) {
         
-        //UIApplicationDelegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        //NSManagedContext
         let context = appDelegate.persistentContainer.viewContext
         
-        //NSFetchRequest
         let request: NSFetchRequest<TitleItem>
         
-        //NSManagedObject
         request = TitleItem.fetchRequest()
         
-        //NSManagedContext.pull
         do {
             let titles = try context.fetch(request)
             completion(.success(titles))
@@ -81,16 +67,13 @@ class DataPersistenceManager {
     }
     
     func deleteTitleWith(model: TitleItem, completion: @escaping (Result<Void, Error>) -> Void) {
-        //UIApplicationDelegate
+
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        //NSManagedContext
         let context = appDelegate.persistentContainer.viewContext
         
-        //NSManagedContext.update
         context.delete(model)
         
-        //NSManagedContext.commit
         do {
             try context.save()
             completion(.success(()))
