@@ -20,10 +20,8 @@ class DataPersistenceManager {
     
     func downloadTitleWith(model: Title, completion: @escaping(Result<Void, Error>) -> Void) {
         
-        //UIApplicationDelegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        //NSManagedContext
         let context = appDelegate.persistentContainer.viewContext
         
         let item = TitleItem(context: context)
