@@ -7,18 +7,12 @@
 
 import Foundation
 
-
-
 struct TrendingTitleResponse: Codable {
-    
-    // MARK: PROPERTY
     
     let results: [Title]
 }
 
 struct Title: Codable {
-    
-    // MARK: PROPERTY
     
     let id: Int
     let media_type: String?
