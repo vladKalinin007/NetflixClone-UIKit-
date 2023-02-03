@@ -8,11 +8,7 @@
 import UIKit
 import WebKit
 
-// MARK: - MAIN
-
 class TitlePreviewViewController: UIViewController {
-    
-// MARK: - PROPERTY
     
     private var randomTrendingMovie: Title?
     
@@ -52,8 +48,6 @@ class TitlePreviewViewController: UIViewController {
         return webView
     }()
     
-// MARK: - LIFECYCLE
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -65,8 +59,6 @@ class TitlePreviewViewController: UIViewController {
         configureConstraints()
         
     }
-    
-// MARK: - FUNCTION
     
     func configureConstraints() {
         let webViewConstraints = [
