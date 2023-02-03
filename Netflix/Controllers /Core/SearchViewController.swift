@@ -6,11 +6,8 @@
 //
 
 import UIKit
-// MARK: - MAIN
 
 class SearchViewController: UIViewController {
-    
-// MARK: - PROPERTY
     
     private var titles: [Title] = [Title]()
     
@@ -26,8 +23,6 @@ class SearchViewController: UIViewController {
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
-
-// MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +50,6 @@ class SearchViewController: UIViewController {
         discoverTable.frame = view.bounds
     }
     
-
-// MARK: - FUNCTION
-    
     private func fetchDiscoverMovies() {
         APICaller.shared.getDiscoverMovies { [weak self] result in
             switch result {
@@ -73,7 +65,6 @@ class SearchViewController: UIViewController {
     }
     
 }
-// MARK: - TABLES VIEW FUNCITONS
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
