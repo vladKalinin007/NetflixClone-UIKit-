@@ -8,11 +8,7 @@
 import UIKit
 import SDWebImage
 
-// MARK: - MAIN
-
 class TitleCollectionViewCell: UICollectionViewCell {
-    
-    // MARK: - PROPERTY
     
     static let identifier = "TitleCollectionViewCell"
     
@@ -21,8 +17,6 @@ class TitleCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
-    // MARK: - LIFECYCLE 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +32,6 @@ class TitleCollectionViewCell: UICollectionViewCell {
         posterImageView.frame = contentView.bounds
     }
     
-    // MARK: - FUNCTION
     
     public func configure(with model: String) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
