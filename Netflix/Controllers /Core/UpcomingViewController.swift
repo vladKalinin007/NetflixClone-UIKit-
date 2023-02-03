@@ -35,8 +35,6 @@ class UpcomingViewController: UIViewController {
         upcomingTable.frame = view.bounds
     }
     
-// MARK: - FUNCTION
-    
     private func fetchUpcoming() {
         APICaller.shared.getUpcomingMovies { [weak self] result in
             switch result {
@@ -52,8 +50,6 @@ class UpcomingViewController: UIViewController {
     }
      
 }
-
-// MARK: - TABLE VIEW FUNCITON
 
 extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     
