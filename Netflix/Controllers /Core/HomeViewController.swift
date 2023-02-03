@@ -16,11 +16,7 @@ enum Sections: Int {
     case TopRated = 4
 }
 
-// MARK: - MAIN
-
 class HomeViewController: UIViewController {
-    
-// MARK: - PROPERTY
     
     private var randomTrendingMovie: Title?
     
@@ -33,8 +29,6 @@ class HomeViewController: UIViewController {
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
-    
-// MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +49,6 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-// MARK: - FUNCTION
-    
-    // MARK: Configure Navigaiton Bar
     private func configureNavbar() {
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)
@@ -86,7 +77,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-// MARK: - TABLE VIEW FUNCTION
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
