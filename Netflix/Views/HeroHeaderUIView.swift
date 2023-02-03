@@ -7,13 +7,8 @@
 
 import UIKit
 
-// MARK: - MAIN
-
 class HeroHeaderUIView: UIView {
 
-// MARK: - PROPERTY
-    
-    // MARK: Download Button
     private let downloadButton: UIButton = {
         let button = UIButton()
         button.setTitle("Download", for: .normal)
@@ -24,7 +19,6 @@ class HeroHeaderUIView: UIView {
         return button
     }()
     
-    // MARK: Play Button
     private let playButton: UIButton = {
         let button = UIButton()
         button.setTitle("Play", for: .normal)
@@ -35,7 +29,6 @@ class HeroHeaderUIView: UIView {
         return button
     }()
     
-    // MARK: Hero Image
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -43,8 +36,6 @@ class HeroHeaderUIView: UIView {
         imageView.image = UIImage(named: "heroImage")
         return imageView
     }()
-    
-// MARK: - LIFECYCLE
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,9 +55,6 @@ class HeroHeaderUIView: UIView {
         fatalError()
     }
     
-// MARK: - FUNCTION
-    
-    // MARK: To Gradient
     private func addGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
@@ -77,7 +65,6 @@ class HeroHeaderUIView: UIView {
         layer.addSublayer(gradientLayer)
     }
     
-    // MARK: To Constraint
     private func applyConstraints() {
         
         let playButtonConstraints = [
