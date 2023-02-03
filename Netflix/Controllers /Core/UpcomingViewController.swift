@@ -7,11 +7,7 @@
 
 import UIKit
 
-// MARK: - MAIN
-
 class UpcomingViewController: UIViewController {
-    
-// MARK: - PROPERTY
     
     private var titles: [Title] = [Title]()
     
@@ -20,8 +16,6 @@ class UpcomingViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
-    
-// MARK: - LIFECYCLE
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +37,6 @@ class UpcomingViewController: UIViewController {
     
 // MARK: - FUNCTION
     
-    // Fetch data for the cell object
     private func fetchUpcoming() {
         APICaller.shared.getUpcomingMovies { [weak self] result in
             switch result {
@@ -64,13 +57,10 @@ class UpcomingViewController: UIViewController {
 
 extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
-    // MARK: Return the number of rows (table cells)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
-    
-    // MARK: Return a reusable table-view cell object
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
@@ -81,7 +71,6 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // MARK: Ask the delegate to return row height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
