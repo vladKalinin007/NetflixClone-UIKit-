@@ -7,10 +7,8 @@
 
 import UIKit
 import SwiftUI
-// MARK: - MAIN
 
-class DownloadsViewController: UIViewController {
-// MARK: - PROPERTY
+class DownloadsViewController: UIViewController 
     
     private var titles: [TitleItem] = [TitleItem]()
     
@@ -19,8 +17,6 @@ class DownloadsViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
-    
-// MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +41,6 @@ class DownloadsViewController: UIViewController {
         downloadedTable.frame = view.bounds
     }
     
-// MARK: - FUNCTION
-    
     private func fetchLocalStorageForDownload() {
         DataPersistenceManager.shared.fetchingTitlesFromDataBase { [weak self] result in
             switch result {
@@ -62,16 +56,14 @@ class DownloadsViewController: UIViewController {
     }
 }
 
-// MARK: - TABLE VIEW FUNCTION
+// MARK: -  UITableViewDelegate, UITableViewDataSource
 
 extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // Return the number of rows (table cells)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
     
-    // Return a reusable table-view cell object
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
@@ -82,7 +74,6 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // Ask the delegate to return row height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
