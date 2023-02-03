@@ -46,10 +46,8 @@ class APICaller {
     
     func getTrendingTvs(completion: @escaping (Result<[Title], Error>) -> Void) {
         
-        // MARK: Unwrap the link safely
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else { return }
         
-        // MARK: Task
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data , _ , error in
             
             guard let data = data, error == nil else { return }
