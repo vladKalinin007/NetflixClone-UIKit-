@@ -7,17 +7,11 @@
 
 import UIKit
 
-// MARK: - DELEGATE PROTOCOL
-
 protocol CollectionViewTableViewCellDelegate: AnyObject {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)
 }
 
-// MARK: - MAIN
-
 class CollectionViewTableViewCell: UITableViewCell {
-    
-    // MARK: - PROPERTY
     
     static let identifier = "CollectionViewTableViewCell"
     
@@ -34,8 +28,6 @@ class CollectionViewTableViewCell: UITableViewCell {
         colletionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier )
         return colletionView
     }()
-
-    // MARK: - LIFECYCLE
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -54,8 +46,6 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         colletcitonView.frame = contentView.bounds
     }
-    
-    // MARK: - FUNCTION
     
     public func configure(with titles: [Title]) {
         self.titles = titles
@@ -78,16 +68,12 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: - COLLECTION VIEW FUNCTION
-
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    // Return the number of rows for the table(DS).
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titles.count
     }
     
-    // Provide a cell object for each row(DS).
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell
         else {
@@ -102,7 +88,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         return cell
     }
     
-    // Tell the delegate that the item at the specified index path was selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
