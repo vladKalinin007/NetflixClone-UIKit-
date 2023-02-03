@@ -7,11 +7,7 @@
 
 import UIKit
 
-// MARK: - MAIN.
-
 class TitleTableViewCell: UITableViewCell {
-
-// MARK: - PROPERTY
 
     static let identifier = "TitleTableViewCell"
     
@@ -37,10 +33,7 @@ class TitleTableViewCell: UITableViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
-
-// MARK: - LIFECYCLE 
-
-    // MARK: Initialize a table cell and return it to the caller.
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(titlesPosterUIImageView)
@@ -50,14 +43,10 @@ class TitleTableViewCell: UITableViewCell {
         applyConstraints()
     }
 
-    // MARK: Create a table view from data in an unarchiver.
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-// MARK: - FUNCTION
-
-    // MARK: Activate each constraint in the specified array.
     private func applyConstraints() {
 
         let titlesPosterUIImageViewConstraints = [
