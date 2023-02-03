@@ -11,11 +11,7 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
     func searchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel)
 }
 
-// MARK: - MAIN
-
 class SearchResultsViewController: UIViewController {
-    
-// MARK: - PROPERTY
     
     public var titles: [Title] = [Title]()
     
@@ -29,8 +25,6 @@ class SearchResultsViewController: UIViewController {
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
         return collectionView
     }()
-    
-// MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +41,9 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchResultsCollecitonView.frame = view.bounds
     }
-    
-// MARK: - FUNCTION
-    
-
 }
 
-// MARK: - COLLECTION VIEW FUNCTION
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
